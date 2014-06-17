@@ -15,6 +15,7 @@ namespace MscordacwksCollector
         private void Form1_Load(object sender, EventArgs e)
         {
             lstResults.Items.Clear();
+            UpdateOutputFolder();
         }
 
         private void button1_Click(object sender, EventArgs e)
@@ -22,9 +23,18 @@ namespace MscordacwksCollector
             lstResults.Items.Clear();
 
             IList<DirectoryInfo> dirs = new List<DirectoryInfo>();
-            dirs.Add(MscordacwksPaths.NetFramework64);
-            dirs.Add(MscordacwksPaths.NetFramework);
-            dirs.Add(MscordacwksPaths.WinSxs);
+            if (chkNetFramework.Checked)
+            {
+                dirs.Add(MscordacwksPaths.NetFramework64);
+            }
+            if (chk64BitNetFramework.Checked)
+            {
+                dirs.Add(MscordacwksPaths.NetFramework);
+            }
+            if (chkSxSDirectories.Checked)
+            {
+                dirs.Add(MscordacwksPaths.WinSxs);
+            }
 
             Cursor = Cursors.WaitCursor;
             lstResults.Enabled = false;
@@ -50,7 +60,7 @@ namespace MscordacwksCollector
 
         private void btnCopy_Click(object sender, EventArgs e)
         {
-            var destinationDir = new DirectoryInfo(txtMscorwksDestination.Text);
+            var destinationDir = DirectoryResolver.Expand(txtMscorwksDestination.Text);
             
             foreach (MscordacInfo item in lstResults.Items)
             {
@@ -59,6 +69,16 @@ namespace MscordacwksCollector
                     File.Copy(item.Source.FullName, Path.Combine(destinationDir.FullName, item.DebuggerName));
                 }
             }
+        }
+
+        private void OnOutputFolderChanged(object sender, EventArgs e)
+        {
+            UpdateOutputFolder();
+        }
+
+        private void UpdateOutputFolder()
+        {
+            lblFullPath.Text = DirectoryResolver.Expand(txtMscorwksDestination.Text).FullName;
         }
     }
 }
