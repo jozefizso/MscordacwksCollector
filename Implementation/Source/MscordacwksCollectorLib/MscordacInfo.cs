@@ -1,4 +1,5 @@
-﻿using System.IO;
+﻿using System;
+using System.IO;
 
 namespace MscordacwksCollector
 {
@@ -7,7 +8,7 @@ namespace MscordacwksCollector
     /// </summary>
     public class MscordacInfo
     {
-        internal MscordacInfo(FileInfo source, string architecture, string version)
+        internal MscordacInfo(FileInfo source, string architecture, Version version)
         {
             Source = source;
             Architecture = architecture;
@@ -16,7 +17,7 @@ namespace MscordacwksCollector
 
         public readonly FileInfo Source;
         public readonly string Architecture;
-        public readonly string Version;
+        public readonly Version Version;
 
         /// <summary>
         /// Name of the DLL as required by the debugger (WinDbg) in order to find and load the data access components correctly.
@@ -26,7 +27,7 @@ namespace MscordacwksCollector
             get
             {
                 string basename = Source.Name.Substring(0, Source.Name.Length - 4);
-                return string.Format("{2}_{0}_{0}_{1}.dll", Architecture, Version, basename);
+                return string.Format("{2}_{0}_{0}_{1}.dll", Architecture, Version.ToString(4), basename);
             }
         }
 

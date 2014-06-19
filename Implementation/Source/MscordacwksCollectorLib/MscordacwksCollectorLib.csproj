@@ -7,8 +7,8 @@
     <ProjectGuid>{DD88F8E6-7D83-427C-9897-FF06B2E50C60}</ProjectGuid>
     <OutputType>Library</OutputType>
     <AppDesignerFolder>Properties</AppDesignerFolder>
-    <RootNamespace>MscordacwksCollectorLib</RootNamespace>
-    <AssemblyName>MscordacwksCollectorLib</AssemblyName>
+    <RootNamespace>MscordacwksCollector</RootNamespace>
+    <AssemblyName>MscordacwksCollector</AssemblyName>
     <TargetFrameworkVersion>v2.0</TargetFrameworkVersion>
     <FileAlignment>512</FileAlignment>
     <TargetFrameworkProfile />
