@@ -3,11 +3,11 @@ using System.IO;
 
 namespace MscordacwksCollector
 {
-    class DirectoryResolver
+    static class DirectoryResolver
     {
         public static DirectoryInfo Expand(string relativeOrEnvironmentDirectory)
         {
-            relativeOrEnvironmentDirectory = ReplaceEnvironmentVariables(relativeOrEnvironmentDirectory);
+            relativeOrEnvironmentDirectory = Environment.ExpandEnvironmentVariables(relativeOrEnvironmentDirectory);
             try
             {
                 var destinationDir = new DirectoryInfo(relativeOrEnvironmentDirectory);
@@ -17,11 +17,6 @@ namespace MscordacwksCollector
             {
                 return new DirectoryInfo("");
             }            
-        }
-
-        private static string ReplaceEnvironmentVariables(string directoryName)
-        {
-            return Environment.ExpandEnvironmentVariables(directoryName);
         }
     }
 }

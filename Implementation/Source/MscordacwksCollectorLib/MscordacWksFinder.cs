@@ -4,7 +4,7 @@ using System.IO;
 
 namespace MscordacwksCollector
 {
-    class MscordacWksFinder
+    public class MscordacWksFinder
     {
         private readonly Action<MscordacInfo> _progressUpdateHandler;
 
@@ -13,7 +13,7 @@ namespace MscordacwksCollector
             _progressUpdateHandler = onItemFound;
         }
 
-        internal IList<MscordacInfo> Find(IList<DirectoryInfo> directories)
+        public IList<MscordacInfo> Find(IList<DirectoryInfo> directories)
         {
             IList<MscordacInfo> files = new List<MscordacInfo>();
             foreach (var directory in directories)

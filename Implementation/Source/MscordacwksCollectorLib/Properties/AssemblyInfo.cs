@@ -4,7 +4,7 @@ using System.Runtime.InteropServices;
 // General Information about an assembly is controlled through the following 
 // set of attributes. Change these attribute values to modify the information
 // associated with an assembly.
-[assembly: AssemblyTitle("MscordacwksCollector UI")]
+[assembly: AssemblyTitle("MscordacwksCollector Business Logic")]
 [assembly: AssemblyDescription("See http://debugging.wellisolutions.de/download-mscordacwks-collector/")]
 [assembly: AssemblyConfiguration("")]
 [assembly: AssemblyCompany("WelliSolutions e.K.")]
@@ -19,7 +19,7 @@ using System.Runtime.InteropServices;
 [assembly: ComVisible(false)]
 
 // The following GUID is for the ID of the typelib if this project is exposed to COM
-[assembly: Guid("5d15fbab-e192-4536-8cc1-b4f63ec1e067")]
+[assembly: Guid("593197a7-1c2b-4e63-bdfb-8fcb3db4add7")]
 
 // Version information for an assembly consists of the following four values:
 //

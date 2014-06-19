@@ -3,11 +3,11 @@ using System.IO;
 
 namespace MscordacwksCollector
 {
-    static class MscordacwksPaths
+    public static class MscordacwksPaths
     {
         private static readonly string WindowsDirectory = Environment.ExpandEnvironmentVariables("%WINDIR%");
 
-        internal static DirectoryInfo NetFramework64
+        public static DirectoryInfo NetFramework64
         {
             get
             {
@@ -17,7 +17,7 @@ namespace MscordacwksCollector
             }
         }
 
-        internal static DirectoryInfo NetFramework
+        public static DirectoryInfo NetFramework
         {
             get
             {
@@ -27,7 +27,7 @@ namespace MscordacwksCollector
             }
         }
 
-        internal static DirectoryInfo WinSxs
+        public static DirectoryInfo WinSxs
         {
             get
             {
