@@ -13,11 +13,13 @@ namespace MscordacwksCollector
             Source = source;
             Architecture = architecture;
             Version = version;
+            Type = Source.Name.Substring(0, Source.Name.Length - 4);
         }
 
         public readonly FileInfo Source;
         public readonly string Architecture;
         public readonly Version Version;
+        public readonly string Type;
 
         /// <summary>
         /// Name of the DLL as required by the debugger (WinDbg) in order to find and load the data access components correctly.
@@ -26,8 +28,7 @@ namespace MscordacwksCollector
         {
             get
             {
-                string basename = Source.Name.Substring(0, Source.Name.Length - 4);
-                return string.Format("{2}_{0}_{0}_{1}.dll", Architecture, Version.ToString(4), basename);
+                return string.Format("{2}_{0}_{0}_{1}.dll", Architecture, Version.ToString(4), Type   );
             }
         }
 

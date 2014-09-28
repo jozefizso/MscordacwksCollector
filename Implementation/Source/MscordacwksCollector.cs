@@ -14,7 +14,6 @@ namespace MscordacwksCollector
 
         private void Form1_Load(object sender, EventArgs e)
         {
-            lstResults.Items.Clear();
             UpdateOutputFolder();
         }
 
@@ -54,7 +53,11 @@ namespace MscordacwksCollector
                 return;
             }
 
-            lstResults.Items.Add(mscordacinfo);
+            ListViewItem item = lstResults.Items.Add(mscordacinfo.Type);
+            item.SubItems.Add(mscordacinfo.Architecture);
+            item.SubItems.Add(mscordacinfo.Version.ToString());
+            item.SubItems.Add(mscordacinfo.Source.DirectoryName);
+            item.Tag = mscordacinfo;
             lstResults.Refresh();
         }
 
@@ -62,11 +65,12 @@ namespace MscordacwksCollector
         {
             var destinationDir = DirectoryResolver.Expand(txtMscorwksDestination.Text);
             
-            foreach (MscordacInfo item in lstResults.Items)
+            foreach (ListViewItem item in lstResults.Items)
             {
-                if (destinationDir.GetFiles(item.DebuggerName).Length == 0)
+                var mscordacInfo = (MscordacInfo) item.Tag;
+                if (destinationDir.GetFiles(mscordacInfo.DebuggerName).Length == 0)
                 {
-                    File.Copy(item.Source.FullName, Path.Combine(destinationDir.FullName, item.DebuggerName));
+                    File.Copy(mscordacInfo.Source.FullName, Path.Combine(destinationDir.FullName, mscordacInfo.DebuggerName));
                 }
             }
         }
