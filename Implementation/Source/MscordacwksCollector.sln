@@ -7,7 +7,7 @@ Project("{FAE04EC0-301F-11D3-BF4B-00C04F79EFBC}") = "MscordacwksCollector", "Msc
 EndProject
 Project("{FAE04EC0-301F-11D3-BF4B-00C04F79EFBC}") = "MscordacwksCollectorLib", "MscordacwksCollectorLib\MscordacwksCollectorLib.csproj", "{DD88F8E6-7D83-427C-9897-FF06B2E50C60}"
 EndProject
-Project("{FAE04EC0-301F-11D3-BF4B-00C04F79EFBC}") = "MscordacWksCollectorTest", "..\MscordacWksCollectorTest\MscordacWksCollectorTest.csproj", "{935AC13E-07A4-44DC-B06C-A64BE087B2E5}"
+Project("{FAE04EC0-301F-11D3-BF4B-00C04F79EFBC}") = "MscordacWksCollectorTest", "MscordacWksCollectorTest\MscordacWksCollectorTest.csproj", "{935AC13E-07A4-44DC-B06C-A64BE087B2E5}"
 EndProject
 Global
 	GlobalSection(SolutionConfigurationPlatforms) = preSolution

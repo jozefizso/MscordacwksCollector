@@ -57,11 +57,11 @@
     <Compile Include="Properties\AssemblyInfo.cs" />
   </ItemGroup>
   <ItemGroup>
-    <ProjectReference Include="..\Source\MscordacwksCollector.csproj">
+    <ProjectReference Include="..\MscordacwksCollector.csproj">
       <Project>{E3A21DA4-DE67-4755-9FB3-2D7FF549B515}</Project>
       <Name>MscordacwksCollector</Name>
     </ProjectReference>
-    <ProjectReference Include="..\Source\MscordacwksCollectorLib\MscordacwksCollectorLib.csproj">
+    <ProjectReference Include="..\MscordacwksCollectorLib\MscordacwksCollectorLib.csproj">
       <Project>{DD88F8E6-7D83-427C-9897-FF06B2E50C60}</Project>
       <Name>MscordacwksCollectorLib</Name>
     </ProjectReference>
