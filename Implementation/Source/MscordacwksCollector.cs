@@ -53,13 +53,15 @@ namespace MscordacwksCollector
                 return;
             }
 
-            ListViewItem item = lstResults.Items.Add(mscordacinfo.Type);
-            item.SubItems.Add(mscordacinfo.Architecture);
-            item.SubItems.Add(mscordacinfo.Version.ToString());
-            item.SubItems.Add(mscordacinfo.Source.DirectoryName);
+            ListViewItem item = lstResults.Items.Add(((IMscordacInfo) mscordacinfo).Type);
+            item.SubItems.Add(((IMscordacInfo) mscordacinfo).Architecture);
+            item.SubItems.Add(((IMscordacInfo) mscordacinfo).Version.ToString());
+            item.SubItems.Add(((IMscordacInfo) mscordacinfo).Source.DirectoryName);
             item.Tag = mscordacinfo;
             lstResults.Refresh();
         }
+
+        StructureResolver structureResolver = new StructureResolver();
 
         private void btnCopy_Click(object sender, EventArgs e)
         {
@@ -68,9 +70,24 @@ namespace MscordacwksCollector
             foreach (ListViewItem item in lstResults.Items)
             {
                 var mscordacInfo = (MscordacInfo) item.Tag;
-                if (destinationDir.GetFiles(mscordacInfo.DebuggerName).Length == 0)
+                string destinationFileName = mscordacInfo.DebuggerName;
+                
+                switch (((IMscordacInfo) mscordacInfo).Type.ToLowerInvariant())
                 {
-                    File.Copy(mscordacInfo.Source.FullName, Path.Combine(destinationDir.FullName, mscordacInfo.DebuggerName));
+                    case "sos":
+                        destinationFileName = Path.Combine(destinationDir.FullName,
+                            structureResolver.Expand(txtStructureSOS.Text, mscordacInfo));
+                        break;
+                    case "mscordacwks":
+                        destinationFileName = Path.Combine(destinationDir.FullName,
+                            structureResolver.Expand(txtStructureMscordacWks.Text, mscordacInfo));
+                        break;
+                }
+
+                if (!File.Exists(destinationFileName))
+                {
+                    Directory.CreateDirectory(new FileInfo(destinationFileName).DirectoryName);
+                    File.Copy(((IMscordacInfo) mscordacInfo).Source.FullName, destinationFileName);
                 }
             }
         }
@@ -83,6 +100,18 @@ namespace MscordacwksCollector
         private void UpdateOutputFolder()
         {
             lblFullPath.Text = DirectoryResolver.Expand(txtMscorwksDestination.Text).FullName;
+        }
+
+        private void OnDefaultStructureClick(object sender, EventArgs e)
+        {
+            txtStructureMscordacWks.Text = @"$A\$V\$T_$A_$A_$V.dll";
+            txtStructureSOS.Text = @"$A\$V\$T.dll";
+        }
+
+        private void OnFlatStructureClick(object sender, EventArgs e)
+        {
+            txtStructureMscordacWks.Text = @"$T_$A_$A_$V.dll";
+            txtStructureSOS.Text = @"$T_$A_$A_$V.dll";
         }
     }
 }

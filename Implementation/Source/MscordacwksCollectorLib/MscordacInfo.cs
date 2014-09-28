@@ -6,7 +6,7 @@ namespace MscordacwksCollector
     /// <summary>
     /// Data class containing information about Microsoft Data Access Components (Mscordacwks) DLL.
     /// </summary>
-    public class MscordacInfo
+    public class MscordacInfo : IMscordacInfo
     {
         internal MscordacInfo(FileInfo source, string architecture, Version version)
         {
@@ -16,10 +16,10 @@ namespace MscordacwksCollector
             Type = Source.Name.Substring(0, Source.Name.Length - 4);
         }
 
-        public readonly FileInfo Source;
-        public readonly string Architecture;
-        public readonly Version Version;
-        public readonly string Type;
+        public FileInfo Source { get; private set; }
+        public string Architecture { get; private set; }
+        public Version Version { get; private set; }
+        public string Type { get; private set; }
 
         /// <summary>
         /// Name of the DLL as required by the debugger (WinDbg) in order to find and load the data access components correctly.
