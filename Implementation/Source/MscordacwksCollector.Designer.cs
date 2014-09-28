@@ -28,6 +28,7 @@
         /// </summary>
         private void InitializeComponent()
         {
+            System.ComponentModel.ComponentResourceManager resources = new System.ComponentModel.ComponentResourceManager(typeof(MscordacwksCollector));
             this.button1 = new System.Windows.Forms.Button();
             this.txtMscorwksDestination = new System.Windows.Forms.TextBox();
             this.btnCopy = new System.Windows.Forms.Button();
@@ -42,6 +43,8 @@
             this.colHdrBitness = ((System.Windows.Forms.ColumnHeader)(new System.Windows.Forms.ColumnHeader()));
             this.colHdrVersion = ((System.Windows.Forms.ColumnHeader)(new System.Windows.Forms.ColumnHeader()));
             this.colHdrPath = ((System.Windows.Forms.ColumnHeader)(new System.Windows.Forms.ColumnHeader()));
+            this.pictureBox1 = new System.Windows.Forms.PictureBox();
+            ((System.ComponentModel.ISupportInitialize)(this.pictureBox1)).BeginInit();
             this.SuspendLayout();
             // 
             // button1
@@ -57,7 +60,7 @@
             // txtMscorwksDestination
             // 
             this.txtMscorwksDestination.Anchor = ((System.Windows.Forms.AnchorStyles)((System.Windows.Forms.AnchorStyles.Bottom | System.Windows.Forms.AnchorStyles.Left)));
-            this.txtMscorwksDestination.Location = new System.Drawing.Point(12, 430);
+            this.txtMscorwksDestination.Location = new System.Drawing.Point(85, 430);
             this.txtMscorwksDestination.Name = "txtMscorwksDestination";
             this.txtMscorwksDestination.Size = new System.Drawing.Size(371, 20);
             this.txtMscorwksDestination.TabIndex = 7;
@@ -67,7 +70,7 @@
             // btnCopy
             // 
             this.btnCopy.Anchor = ((System.Windows.Forms.AnchorStyles)((System.Windows.Forms.AnchorStyles.Bottom | System.Windows.Forms.AnchorStyles.Left)));
-            this.btnCopy.Location = new System.Drawing.Point(389, 428);
+            this.btnCopy.Location = new System.Drawing.Point(462, 428);
             this.btnCopy.Name = "btnCopy";
             this.btnCopy.Size = new System.Drawing.Size(109, 23);
             this.btnCopy.TabIndex = 9;
@@ -79,7 +82,7 @@
             // 
             this.lblFullPath.Anchor = ((System.Windows.Forms.AnchorStyles)((System.Windows.Forms.AnchorStyles.Bottom | System.Windows.Forms.AnchorStyles.Left)));
             this.lblFullPath.AutoSize = true;
-            this.lblFullPath.Location = new System.Drawing.Point(12, 453);
+            this.lblFullPath.Location = new System.Drawing.Point(85, 453);
             this.lblFullPath.Name = "lblFullPath";
             this.lblFullPath.Size = new System.Drawing.Size(15, 13);
             this.lblFullPath.TabIndex = 8;
@@ -90,7 +93,7 @@
             this.lblOutputDirectory.Anchor = ((System.Windows.Forms.AnchorStyles)((System.Windows.Forms.AnchorStyles.Bottom | System.Windows.Forms.AnchorStyles.Left)));
             this.lblOutputDirectory.AutoSize = true;
             this.lblOutputDirectory.Font = new System.Drawing.Font("Microsoft Sans Serif", 8.25F, System.Drawing.FontStyle.Bold, System.Drawing.GraphicsUnit.Point, ((byte)(0)));
-            this.lblOutputDirectory.Location = new System.Drawing.Point(12, 402);
+            this.lblOutputDirectory.Location = new System.Drawing.Point(85, 402);
             this.lblOutputDirectory.Name = "lblOutputDirectory";
             this.lblOutputDirectory.Size = new System.Drawing.Size(98, 13);
             this.lblOutputDirectory.TabIndex = 5;
@@ -101,7 +104,7 @@
             this.lblDirectoryHint.Anchor = ((System.Windows.Forms.AnchorStyles)((System.Windows.Forms.AnchorStyles.Bottom | System.Windows.Forms.AnchorStyles.Left)));
             this.lblDirectoryHint.AutoSize = true;
             this.lblDirectoryHint.BackColor = System.Drawing.SystemColors.Control;
-            this.lblDirectoryHint.Location = new System.Drawing.Point(12, 415);
+            this.lblDirectoryHint.Location = new System.Drawing.Point(85, 415);
             this.lblDirectoryHint.Name = "lblDirectoryHint";
             this.lblDirectoryHint.Size = new System.Drawing.Size(176, 13);
             this.lblDirectoryHint.TabIndex = 6;
@@ -150,10 +153,10 @@
             this.colHdrBitness,
             this.colHdrVersion,
             this.colHdrPath});
-            this.lstResults.Location = new System.Drawing.Point(12, 44);
+            this.lstResults.Location = new System.Drawing.Point(15, 44);
             this.lstResults.MultiSelect = false;
             this.lstResults.Name = "lstResults";
-            this.lstResults.Size = new System.Drawing.Size(768, 355);
+            this.lstResults.Size = new System.Drawing.Size(765, 355);
             this.lstResults.TabIndex = 10;
             this.lstResults.UseCompatibleStateImageBehavior = false;
             this.lstResults.View = System.Windows.Forms.View.Details;
@@ -177,11 +180,21 @@
             this.colHdrPath.Text = "Directory";
             this.colHdrPath.Width = 512;
             // 
+            // pictureBox1
+            // 
+            this.pictureBox1.Image = ((System.Drawing.Image)(resources.GetObject("pictureBox1.Image")));
+            this.pictureBox1.Location = new System.Drawing.Point(15, 405);
+            this.pictureBox1.Name = "pictureBox1";
+            this.pictureBox1.Size = new System.Drawing.Size(64, 64);
+            this.pictureBox1.TabIndex = 11;
+            this.pictureBox1.TabStop = false;
+            // 
             // MscordacwksCollector
             // 
             this.AutoScaleDimensions = new System.Drawing.SizeF(6F, 13F);
             this.AutoScaleMode = System.Windows.Forms.AutoScaleMode.Font;
             this.ClientSize = new System.Drawing.Size(792, 473);
+            this.Controls.Add(this.pictureBox1);
             this.Controls.Add(this.lstResults);
             this.Controls.Add(this.chkSxSDirectories);
             this.Controls.Add(this.chk64BitNetFramework);
@@ -192,9 +205,11 @@
             this.Controls.Add(this.btnCopy);
             this.Controls.Add(this.txtMscorwksDestination);
             this.Controls.Add(this.button1);
+            this.Icon = ((System.Drawing.Icon)(resources.GetObject("$this.Icon")));
             this.Name = "MscordacwksCollector";
-            this.Text = "MsCorDacWks / SOS Finder";
+            this.Text = "WelliSolutions MsCorDacWks / SOS Finder";
             this.Load += new System.EventHandler(this.Form1_Load);
+            ((System.ComponentModel.ISupportInitialize)(this.pictureBox1)).EndInit();
             this.ResumeLayout(false);
             this.PerformLayout();
 
@@ -216,6 +231,7 @@
         private System.Windows.Forms.ColumnHeader colHdrBitness;
         private System.Windows.Forms.ColumnHeader colHdrVersion;
         private System.Windows.Forms.ColumnHeader colHdrPath;
+        private System.Windows.Forms.PictureBox pictureBox1;
     }
 }
 
