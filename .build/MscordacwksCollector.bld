@@ -1,0 +1,36 @@
+<?xml version='1.0' encoding='utf-8'?>
+<project version='8' encrypted='1'>
+	<steps type='0'>
+		<step action='Group'>
+			<buildfailsteps type='11'>0</buildfailsteps>
+			<name>Project steps</name>
+		</step>
+		<step action='Make VS 2013'>
+			<AssemblyVer type='11'>-1</AssemblyVer>
+			<Attr type='11'>-1</Attr>
+			<Config>Release|Any CPU</Config>
+			<FileVer type='11'>-1</FileVer>
+			<Filename>E:\Private\WelliSolutions\OpenSource\MscordacwksCollector\trunk\Implementation\Source\MscordacwksCollector.sln</Filename>
+			<ProdVer type='11'>-1</ProdVer>
+			<Version>%VERSION%</Version>
+			<VersionSel type='3'>2</VersionSel>
+			<buildfailsteps type='11'>0</buildfailsteps>
+			<indent type='3'>1</indent>
+			<name>Build MscordacwksCollector</name>
+		</step>
+		<step action='7-Zip'>
+			<Action>Update</Action>
+			<Filename>E:\Private\WelliSolutions\OpenSource\MscordacwksCollector\trunk\Implementation\MscordacwksCollector %VERSION%.zip</Filename>
+			<I><![CDATA[E:\Private\WelliSolutions\OpenSource\MscordacwksCollector\trunk\Implementation\Source\bin\Release\MscordacwksCollector.exe
+E:\Private\WelliSolutions\OpenSource\MscordacwksCollector\trunk\Implementation\Source\bin\Release\MscordacwksCollectorLib.dll]]></I>
+			<T>zip</T>
+			<Y type='11'>-1</Y>
+			<buildfailsteps type='11'>0</buildfailsteps>
+			<indent type='3'>1</indent>
+			<name>7-Zip</name>
+		</step></steps>
+	<macros>
+		<macro name='VERSION'>
+			<value>1.1.4.0</value>
+		</macro></macros>
+</project>
