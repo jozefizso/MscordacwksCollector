@@ -37,9 +37,16 @@ namespace MscordacwksCollector
             var dlls = directory.GetFiles(mscordacwksDLL, SearchOption.TopDirectoryOnly);
             foreach (var dll in dlls)
             {
-                var item = new MscordacInfo(dll, DllHelper.Architecture(dll), DllHelper.Version(dll));
-                files.Add(item);
-                _progressUpdateHandler(item);
+                try
+                {
+                    var item = new MscordacInfo(dll, DllHelper.Architecture(dll), DllHelper.Version(dll));
+                    files.Add(item);
+                    _progressUpdateHandler(item);
+                }
+                catch (Exception)
+                {
+                    // ignored
+                }
             }
         }
     }

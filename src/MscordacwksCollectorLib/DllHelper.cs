@@ -22,13 +22,18 @@ namespace MscordacwksCollector
 
         private static MachineType GetDllMachineType(string dllPath)
         {
-            //see http://www.microsoft.com/whdc/system/platform/firmware/PECOFF.mspx
-            using ( FileStream fs = new FileStream(dllPath, FileMode.Open, FileAccess.Read))
+            //see https://docs.microsoft.com/en-us/windows/desktop/Debug/pe-format
+            using (FileStream fs = new FileStream(dllPath, FileMode.Open, FileAccess.Read))
             {
                 using (BinaryReader br = new BinaryReader(fs))
                 {
                     fs.Seek(PEHeaderOffset, SeekOrigin.Begin);
-                    var peOffset = br.ReadInt32();
+                    var peOffset = br.ReadUInt32();
+                    if (peOffset >= fs.Length)
+                    {
+                        return MachineType.None;
+                    }
+
                     fs.Seek(peOffset, SeekOrigin.Begin);
                     var peHead = br.ReadUInt32();
                     if (peHead != PEHeaderBytes)
@@ -44,6 +49,7 @@ namespace MscordacwksCollector
 
         private enum MachineType : ushort
         {
+            None = 0,
             IMAGE_FILE_MACHINE_AMD64 = 0x8664,
             IMAGE_FILE_MACHINE_I386 = 0x14c,
             IMAGE_FILE_MACHINE_IA64 = 0x200,
@@ -59,6 +65,8 @@ namespace MscordacwksCollector
                     return "x86";
                 case MachineType.IMAGE_FILE_MACHINE_IA64:
                     return "IA64";
+                case MachineType.None:
+                    return "(none)";
                 default:
                     throw new InvalidOperationException("Architecture not supported");
             }
