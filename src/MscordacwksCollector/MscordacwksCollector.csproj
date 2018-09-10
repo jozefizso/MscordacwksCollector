@@ -75,7 +75,7 @@
     <None Include="App.config" />
   </ItemGroup>
   <ItemGroup>
-    <ProjectReference Include="MscordacwksCollectorLib\MscordacwksCollectorLib.csproj">
+    <ProjectReference Include="..\MscordacwksCollectorLib\MscordacwksCollectorLib.csproj">
       <Project>{dd88f8e6-7d83-427c-9897-ff06b2e50c60}</Project>
       <Name>MscordacwksCollectorLib</Name>
     </ProjectReference>

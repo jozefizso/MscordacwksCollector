@@ -3,7 +3,7 @@ Microsoft Visual Studio Solution File, Format Version 12.00
 # Visual Studio 2013
 VisualStudioVersion = 12.0.30723.0
 MinimumVisualStudioVersion = 10.0.40219.1
-Project("{FAE04EC0-301F-11D3-BF4B-00C04F79EFBC}") = "MscordacwksCollector", "src\MscordacwksCollector.csproj", "{E3A21DA4-DE67-4755-9FB3-2D7FF549B515}"
+Project("{FAE04EC0-301F-11D3-BF4B-00C04F79EFBC}") = "MscordacwksCollector", "src\MscordacwksCollector\MscordacwksCollector.csproj", "{E3A21DA4-DE67-4755-9FB3-2D7FF549B515}"
 EndProject
 Project("{FAE04EC0-301F-11D3-BF4B-00C04F79EFBC}") = "MscordacwksCollectorLib", "src\MscordacwksCollectorLib\MscordacwksCollectorLib.csproj", "{DD88F8E6-7D83-427C-9897-FF06B2E50C60}"
 EndProject
