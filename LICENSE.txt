@@ -1,0 +1,2 @@
+License: free for personal and commercial use
+Copyright (c) 2014 Thomas Weller
